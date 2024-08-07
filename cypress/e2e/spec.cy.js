@@ -1,5 +1,6 @@
-describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('https://example.cypress.io')
+describe('simple test', () => {
+  it('can read the site', () => {
+    cy.visit('/')
+    cy.contains('Hello world')
   })
 })
