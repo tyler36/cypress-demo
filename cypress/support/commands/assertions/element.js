@@ -117,11 +117,14 @@ Cypress.Commands.add('selectorContainsValue', selectorContainsValue)
 Cypress.Commands.add('selectorNotContainsValue', selectorNotContainsValue)
 Cypress.Commands.add('selectorVisible', selectorVisible)
 Cypress.Commands.add('selectorHidden', selectorHidden)
+
 Cypress.Commands.add('linkExist', linkExist)
 Cypress.Commands.add('linkNotExist', linkNotExist)
+
 Cypress.Commands.add('titleContains', titleContains)
 Cypress.Commands.add('metaDescription', metaDescription)
 Cypress.Commands.add('metaName', metaName)
 Cypress.Commands.add('metaProp', metaProp)
 Cypress.Commands.add('scriptExist', scriptExist)
+
 Cypress.Commands.add('notSeeErrors', notSeeErrors)

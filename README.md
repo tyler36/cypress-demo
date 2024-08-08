@@ -11,7 +11,10 @@
   - [Media output](#media-output)
     - [Screenshots](#screenshots)
     - [Videos](#videos)
-  - [Reporters](#reporters)
+  - [Reporter](#reporter)
+- [Plugins](#plugins)
+  - [TypeScript](#typescript)
+  - [Cucumber](#cucumber)
 - [Tips](#tips)
   - [Iframes](#iframes)
   - [Network stubbing](#network-stubbing)
@@ -236,21 +239,20 @@ This can result in elements, such as headers, scroll-to-top, or colors to be rep
 
 @see <https://docs.cypress.io/guides/guides/screenshots-and-videos#Videos>
 
-### Reporters
+### Reporter
 
 - To output a 'junit' log file:
 
-    ```js
-    {
-      ....
-      reporter: 'junit',
-      reporterOptions: {
-        mochaFile: 'logs/cypress-junit.xml',
-      },
-    }
+  ```js
+  {
+    reporter: 'junit',
+    reporterOptions: {
+      mochaFile: 'logs/cypress-junit.xml',
+    },
+  }
   ```
 
-## Addons
+## Plugins
 
 ### TypeScript
 
@@ -307,39 +309,51 @@ This can result in elements, such as headers, scroll-to-top, or colors to be rep
 
 - Install `cypress-cucumber-preprocessor`
 
-```bash
-npm add cypress cypress-cucumber-preprocessor --save-dev
-```
+    ```bash
+    npm install @badeball/cypress-cucumber-preprocessor @bahmutov/cypress-esbuild-preprocessor --save-dev
+    ```
 
 - Update `cypress.config.js` to include `feature` files
 
-```js
-const { defineConfig } = require('cypress')
+    ```js
+    const { defineConfig } = require('cypress')
 
-module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config)
-    },
-    specPattern: [
-      'cypress/e2e/**/*.{js,feature}'
-    ],
-  },
-})
-```
+    module.exports = defineConfig({
+      e2e: {
+        // Determines what filetypes are considered tests.
+        specPattern: 'cypress/e2e/**/*.{cy.js,cy.ts,feature}',
+        // Add Cucumber processor plugin.
+        async setupNodeEvents(
+          on: Cypress.PluginEvents,
+          config: Cypress.PluginConfigOptions,
+        ): Promise<Cypress.PluginConfigOptions> {
+          // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
+          await addCucumberPreprocessorPlugin(on, config)
+          on(
+            'file:preprocessor',
+            createBundler({
+              plugins: [createEsbuildPlugin(config)],
+            }),
+          )
+          // Make sure to return the config object as it might have been modified by the plugin.
+          return config
+        },
+      },
+    })
+    ```
 
 - Add `cucumber` to `./cypress/plugins/index.js`
 
-```javascript
-const cucumber = require('cypress-cucumber-preprocessor').default
+    ```javascript
+    const cucumber = require('cypress-cucumber-preprocessor').default
 
-/**
- * @type {Cypress.PluginConfig}
- */
-module.exports = (on, config) => {
-  on('file:preprocessor', cucumber());
-}
-```
+    /**
+    * @type {Cypress.PluginConfig}
+    */
+    module.exports = (on, config) => {
+      on('file:preprocessor', cucumber());
+    }
+    ```
 
 ## Tips
 
