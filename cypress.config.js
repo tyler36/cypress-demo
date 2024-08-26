@@ -6,4 +6,8 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
-});
+  video: true,
+  videosFolder: 'logs/e2e/videos',
+  screenshotOnRunFailure: true,
+  screenshotsFolder: 'logs/e2e/screenshots',
+})
