@@ -1,3 +1,6 @@
 {
-  "error": "Error"
+  "error": "Error",
+  "message": {
+    "error": "An error occurred"
+  }
 }

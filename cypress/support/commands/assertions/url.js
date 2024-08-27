@@ -38,4 +38,5 @@ Cypress.Commands.add( 'pathEqual', pathEqual );
 Cypress.Commands.add( 'pathNotEqual', pathNotEqual );
 Cypress.Commands.add( 'pathIncludes', pathIncludes );
 Cypress.Commands.add( 'pathNotIncludes', pathNotIncludes );
+
 Cypress.Commands.add( 'expectStatus', expectStatus );
