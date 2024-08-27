@@ -1,14 +1,14 @@
-import { Then } from '@badeball/cypress-cucumber-preprocessor'
+import { When } from '@badeball/cypress-cucumber-preprocessor'
 
-Then('I click {string}', cy.clickSelector)
-Then('{string}をクリックします', cy.clickSelector)
+When('I click {string}', cy.clickSelector)
+When('{string}をクリックします', cy.clickSelector)
 
-Then('I click the text {string}', cy.clickText)
-Then('テキスト{string}をクリックします', cy.clickText)
-Then('I click the text {string} in {string}', cy.clickTextIn)
+When('I click the text {string}', cy.clickText)
+When('テキスト{string}をクリックします', cy.clickText)
+When('I click the text {string} in {string}', cy.clickTextIn)
 
-Then('I check {string}', cy.checkSelector)
-Then('I select {string} in {string}', cy.selectOption)
+When('I check {string}', cy.checkSelector)
+When('I select {string} in {string}', cy.selectOption)
 
-Then('I submit the form', cy.submit)
-Then('フォームを送信します', cy.submit)
+When('I submit the form', cy.submit)
+When('フォームを送信します', cy.submit)

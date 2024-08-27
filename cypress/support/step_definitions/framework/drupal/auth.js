@@ -10,4 +10,4 @@ Given('{string} user exists', cy.userShouldExist)
 
 Then('cancel user {string} and content', cy.userCancelContent)
 
-Then('I enter login details for {string}', cy.enterLoginDetails)
+When('I enter login details for {string}', cy.enterLoginDetails)

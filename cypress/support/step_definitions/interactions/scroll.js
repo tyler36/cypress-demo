@@ -1,6 +1,6 @@
-import { Given } from '@badeball/cypress-cucumber-preprocessor'
+import { When } from '@badeball/cypress-cucumber-preprocessor'
 
-Given('I scroll {int} px', cy.scrollDistance)
-Given('{int}ピクセルスクロールします', cy.scrollDistance)
-Given('I scroll to the {string} of {string}', cy.scrollToSelectorPosition)
-Given('{string}の{string}までスクロールします', cy.scrollToSelectorPosition)
+When('I scroll {int} px', cy.scrollDistance)
+When('{int}ピクセルスクロールします', cy.scrollDistance)
+When('I scroll to the {string} of {string}', cy.scrollToSelectorPosition)
+When('{string}の{string}までスクロールします', cy.scrollToSelectorPosition)
