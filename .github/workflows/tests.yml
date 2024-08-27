@@ -19,11 +19,6 @@ jobs:
       - name: '☁️ checkout repository'
         uses: actions/checkout@v4
 
-      # - name: '⚙️ Setup DDEV'
-      #   uses: ddev/github-action-setup-ddev@v1
-      # - name: '✅ Run Cypress'
-      #   run: ddev cypress-run | grep 'All specs passed'
-
       - name: '✅ Run Cypress'
         if: ${{ !env.ACT }}
         uses: cypress-io/github-action@v6
