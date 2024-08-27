@@ -25,6 +25,7 @@
   - [Element **not** exists](#element-not-exists)
   - [Environmental Variables](#environmental-variables)
   - [Basic authentication](#basic-authentication)
+- [VScode](#vscode)
 - [Troubleshooting](#troubleshooting)
   - ["Cypress: error while loading shared libraries: libnss3.so"](#cypress-error-while-loading-shared-libraries-libnss3so)
 
@@ -494,6 +495,22 @@ describe('Login', () => {
 ### Basic authentication
 
 - Set the `baseUrl` to `http://username:password@site.local` // secretlint-disable-line
+
+## VScode
+
+### marcosvfranco.cucumberautocomplete-behat
+
+[Homepage](https://marketplace.visualstudio.com/items?itemName=marcosvfranco.cucumberautocomplete-behat)
+
+Settings:
+
+```json
+    "cucumberautocomplete.steps": [
+  "cypress/support/step_definitions/**/*.js",
+],
+"cucumberautocomplete.strictGherkinCompletion": true,
+"cucumberautocomplete.syncfeatures": "test/features/*feature"
+```
 
 ## Troubleshooting
 
