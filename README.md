@@ -21,11 +21,15 @@
     - [Return fixture results](#return-fixture-results)
     - [Dynamic](#dynamic)
     - [Handling errors](#handling-errors)
+- [GitHub Actions](#github-actions)
+  - [Node Projects](#node-projects)
+  - [DDEV projects](#ddev-projects)
 - [Help](#help)
   - [Element **not** exists](#element-not-exists)
   - [Environmental Variables](#environmental-variables)
   - [Basic authentication](#basic-authentication)
 - [VScode](#vscode)
+  - [marcosvfranco.cucumberautocomplete-behat](#marcosvfrancocucumberautocomplete-behat)
 - [Troubleshooting](#troubleshooting)
   - ["Cypress: error while loading shared libraries: libnss3.so"](#cypress-error-while-loading-shared-libraries-libnss3so)
 
@@ -454,6 +458,56 @@ it('Handles errors', () => {
     expect(response.body).to.equal('Internal Server Error')
   })
 })
+```
+
+## GitHub Actions
+
+### Node Projects
+
+Use the following for Node Projects:
+
+  ```yaml
+  - name: '✅ Run Cypress'
+    if: ${{ !env.ACT }} # Skip if using local runner
+    uses: cypress-io/github-action@v6
+    with:
+      # Install npm dependencies, cache them correctly and run all Cypress tests
+      build: npm run build
+      start: npm start
+      # browser: chrome
+  ```
+
+### DDEV projects
+
+Use the following for DDEV-hosted projects:
+
+```yml
+jobs:
+  e2e:
+  - name: '✅ Run Cypress'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "☁️ checkout repository"
+        uses: actions/checkout@v4
+
+      - name: "⚙️ Setup DDEV"
+        uses: ddev/github-action-setup-ddev@v1
+
+      - name: "⚙️ Setup Project"
+        run: |
+          ddev composer install
+          ddev artisan migrate
+          ddev artisan key:generate
+
+      - name: "✅ Cypress tests"
+        run: ddev cypress-run | grep 'All specs passed'
+
+      - name: "☁️ Archive Artifacts"
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: |
+            logs
 ```
 
 ## Help
