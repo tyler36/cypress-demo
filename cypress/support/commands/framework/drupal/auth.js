@@ -2,14 +2,14 @@ import {login} from '../../fixtures/selectors.json';
 let user = Cypress.env('users').authenticated;
 
 /**
- * @description     Logout any logged in user
+ * Logout any logged in user
  */
 let asGuest = () => {
   cy.logout();
 }
 
 /**
- * @description   Log in "name" into current session
+ * Log in "name" into current session
  * @param {string} name
  */
 let asUser = name => {
@@ -29,7 +29,7 @@ let asUser = name => {
 };
 
 /**
- * @description Ensure user of "role" exists by force creating if nessasary.
+ * Ensure user of "role" exists by force creating if necessary.
  * @param {string} role
  */
 let userShouldExist = role => {
@@ -47,7 +47,7 @@ let userShouldExist = role => {
 }
 
 /**
- * @description                 Enter login details for user
+ * Enter login details for user
  * @param {string} username
  */
 let enterLoginDetails = username => {

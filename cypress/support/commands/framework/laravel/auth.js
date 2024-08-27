@@ -4,7 +4,7 @@
  * @param {Object} attributes
  *
  * @example cy.login();
- *          cy.login({ name: 'JohnDoe' });
+ * @example cy.login({ name: 'JohnDoe' });
  */
 Cypress.Commands.add('login', (attributes = {}) => {
     return cy

@@ -284,6 +284,23 @@ This can result in elements, such as headers, scroll-to-top, or colors to be rep
     }
     ```
 
+- To help with IDE completion, add commands types to `cypress/support/index.ts`
+
+    ```js
+    // cypress/support/index.ts
+    declare global {
+      namespace Cypress {
+        interface Chainable {
+          /**
+           * Custom command to select DOM element by data-cy attribute.
+           * @example cy.dataCy('greeting')
+           */
+          dataCy(value: string): Chainable<JQuery<HTMLElement>>
+        }
+      }
+    }
+    ```
+
 @see <https://docs.cypress.io/guides/tooling/typescript-support>
 
 ### Cucumber
