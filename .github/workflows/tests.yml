@@ -1,0 +1,36 @@
+name: tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  e2e:
+    name: '✅ cypress'
+    runs-on: ubuntu-latest
+    steps:
+      - name: '☁️ checkout repository'
+        uses: actions/checkout@v4
+
+      # - name: '⚙️ Setup DDEV'
+      #   uses: ddev/github-action-setup-ddev@v1
+      # - name: '✅ Run Cypress'
+      #   run: ddev cypress-run | grep 'All specs passed'
+
+      - name: '✅ Run Cypress'
+        if: ${{ !env.ACT }}
+        uses: cypress-io/github-action@v6
+
+      - name: '☁️ Archive artifacts'
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: |
+            logs
