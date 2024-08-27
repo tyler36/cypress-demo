@@ -4,6 +4,7 @@
   ],
   "cucumberautocomplete.steps": [
     "cypress/support/step_definitions/**/*.js",
+    "cypress/e2e/**/*.ts"
   ],
   "cucumberautocomplete.strictGherkinCompletion": true,
   "cucumberautocomplete.syncfeatures": "test/features/*feature"
