@@ -1,15 +1,14 @@
 /**
- * @description             Assert "string" exists within body
- * @param {string} string   Text to find
+ * Assert "string" exists within body
+ * @param {string} text   Text to find
  */
-let stringExist = string => cy.get( `body` ).contains( string );
+let stringExist = (string) => cy.get(`body`).contains(string)
 
 /**
- * @description             Assert "string" does NOT exist within body
+ * Assert "string" does NOT exist within body
  * @param {string} string   Text to find
  */
-let stringNotExist = string => cy.get( `body` ).should( 'not.contain', string );
+let stringNotExist = (string) => cy.get(`body`).should('not.contain', string)
 
-
-Cypress.Commands.add( 'stringExist', stringExist );
-Cypress.Commands.add( 'stringNotExist', stringNotExist );
+Cypress.Commands.add('stringExist', stringExist)
+Cypress.Commands.add('stringNotExist', stringNotExist)

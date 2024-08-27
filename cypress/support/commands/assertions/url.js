@@ -1,29 +1,29 @@
 /**
- * @description         Browser URL should match baseURL + "path"
+ * Browser URL should match baseURL + "path"
  * @param {string} path appearing after baseURL
  */
 let pathEqual = path => cy.url().should( 'eql', Cypress.config().baseUrl + `${path}` );
 
 /**
- * @description         Browser URL should NOT match baseURL + "path"
+ * Browser URL should NOT match baseURL + "path"
  * @param {string} path appearing after baseURL
  */
 let pathNotEqual = path => cy.url().should( 'not.be', Cypress.config().baseUrl + `${path}` );
 
 /**
- * @description         Browser URL should include the "path"
+ * Browser URL should include the "path"
  * @param {string} path appearing after baseURL
  */
 let pathIncludes = path => cy.url().should( 'include', path );
 
 /**
- * @description         Browser URL should NOT include the "path"
+ * Browser URL should NOT include the "path"
  * @param {string} path appearing after baseURL
  */
 let pathNotIncludes = path => cy.url().should( 'not.include', path );
 
 /**
- * @description         Request "path" and expect a "statusCode"
+ * Request "path" and expect a "statusCode"
  * @param {string} path appearing after baseURL
  */
 let expectStatus = ( path, statusCode ) => cy.request( {
