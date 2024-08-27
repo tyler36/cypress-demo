@@ -252,6 +252,40 @@ This can result in elements, such as headers, scroll-to-top, or colors to be rep
 
 ## Addons
 
+### TypeScript
+
+- Add TypeScript compiler
+
+    ```shell
+    npm install ts-node typescript -D
+    ```
+
+- Change `.js` files to `.ts`;
+
+- Configure `cypress/tsconfig.json`
+
+    ```json
+    {
+      "compilerOptions": {
+        "target": "es5",
+        "lib": [
+          "es5",
+          "dom"
+        ],
+        "types": [
+          "cypress",
+          "node"
+        ]
+      },
+      "include": [
+        "**/*.ts"
+      ]
+
+    }
+    ```
+
+@see <https://docs.cypress.io/guides/tooling/typescript-support>
+
 ### Cucumber
 
 - Install `cypress-cucumber-preprocessor`
