@@ -29,7 +29,7 @@
   - [Environmental Variables](#environmental-variables)
   - [Basic authentication](#basic-authentication)
 - [VScode](#vscode)
-  - [marcosvfranco.cucumberautocomplete-behat](#marcosvfrancocucumberautocomplete-behat)
+  - ["Marcosvfranco.cucumberautocomplete-behat"](#marcosvfrancocucumberautocomplete-behat)
 - [Troubleshooting](#troubleshooting)
   - ["Cypress: error while loading shared libraries: libnss3.so"](#cypress-error-while-loading-shared-libraries-libnss3so)
 
@@ -127,7 +127,7 @@ docker run -it --rm -v ${PWD}:/e2e -w /e2e --entrypoint=cypress -e CYPRESS_baseU
 
 ### Cypress GUI font support
 
-- If Cypress GUI displays `□` in the step logs, it is missing the a character set/font.
+- If Cypress GUI displays `□` in the step logs, a character set/font is missing.
 - A straight forward solution is to map your local font directory as a volume:
 
     ```docker
@@ -185,7 +185,7 @@ module.exports = (on, config) => {
   cy.screenshot('screengrab')
   ```
 
-- Automatically take screen shot when tests fall.
+- Automatically take screenshot when tests fall.
 
   ```js
   {
@@ -204,8 +204,8 @@ module.exports = (on, config) => {
 @see <https://docs.cypress.io/api/commands/screenshot>
 
 NOTE: Sites using `height: 100%` or `sticky` elements may generate [issue](https://github.com/cypress-io/cypress/issues/2681).
-Screenshots are created by sticking together viewport images.
-This can result in elements, such as headers, scroll-to-top, or colors to be repeated.
+Cypress stitches together viewport images to create screenshots.
+This can result in elements, such as headers, scroll-to-top, or colors repeating.
 
 - To resolves `height:100%` issues:
 
@@ -226,7 +226,7 @@ This can result in elements, such as headers, scroll-to-top, or colors to be rep
 
 #### Videos
 
-- Video output is disabled by default. Enable it in `cypress.config.js`
+- Enable Video output in `cypress.config.js`
 
   ```js
   {
@@ -552,7 +552,7 @@ describe('Login', () => {
 
 ## VScode
 
-### marcosvfranco.cucumberautocomplete-behat
+### "Marcosvfranco.cucumberautocomplete-behat"
 
 [Homepage](https://marketplace.visualstudio.com/items?itemName=marcosvfranco.cucumberautocomplete-behat)
 
