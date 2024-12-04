@@ -15,7 +15,6 @@ services:
       - CYPRESS_baseUrl=${DDEV_PRIMARY_URL}
       - DISPLAY
       - HOME=/root
-      - LANG=ja_JP.UTF-8
 
     volumes:
       # Mount the project root to Cypress's project point
@@ -24,8 +23,6 @@ services:
       - '.:/mnt/ddev_config'
       # Allow X11 forwarding
       - /tmp/.X11-unix:/tmp/.X11-unix
-      # Allow container to use locally installed fonts.
-      - /usr/share/fonts:/usr/share/fonts/shared
 
     external_links:
       # Resolve links via DDEV router
