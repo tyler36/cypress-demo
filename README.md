@@ -1,5 +1,8 @@
 # Cypress <!-- omit in toc -->
 
+[![tests](https://github.com/tyler36/cypress-demo/actions/workflows/tests.yml/badge.svg)](https://github.com/tyler36/cypress-demo/actions/workflows/tests.yml)
+[![Dependabot Updates](https://github.com/tyler36/cypress-demo/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/tyler36/cypress-demo/actions/workflows/dependabot/dependabot-updates)
+
 - [Install](#install)
 - [Run via Docker image](#run-via-docker-image)
   - [Connecting to a locally hosted site](#connecting-to-a-locally-hosted-site)
