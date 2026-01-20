@@ -30,8 +30,9 @@ jobs:
         uses: cypress-io/github-action@v6
 
       - name: '☁️ Archive artifacts'
+        if: ${{ always() }}
         uses: actions/upload-artifact@v6
         with:
           name: logs
           path: |
-            logs
+            ./logs/**
