@@ -27,7 +27,7 @@ jobs:
 
       - name: '✅ Run Cypress'
         if: ${{ !env.ACT }}
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
 
       - name: '☁️ Archive artifacts'
         if: ${{ always() }}
