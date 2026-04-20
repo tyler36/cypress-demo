@@ -7,7 +7,7 @@
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
     "cypress": "^15.13.1",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   },
   "stepDefinitions": [
     "cypress/support/step_definitions/**/*.{js,ts}"
