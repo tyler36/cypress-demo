@@ -5,7 +5,7 @@ When('I visit duckduckgo.com', () => {
 })
 
 Then('I should see a search bar', () => {
-  cy.get('[data-ssg-id="ai-searchbox-input"]').should(
+  cy.get('textarea[name="q"]').should(
     'have.attr',
     'aria-label',
     'Search with DuckDuckGo',
